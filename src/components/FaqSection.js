@@ -2,44 +2,42 @@ import React from 'react'
 import styled from 'styled-components'
 import {About} from '../Styles'
 import Toggle from './Toggle'
+import {AnimateSharedLayout} from 'framer-motion'
+import {UseScroll} from './useScroll'
+import {scrollReveal} from '../animation'
+
 const FaqSection = () => {
+    const [element, controls] = UseScroll()
     return (
-        <Faq>
+        <Faq variants={scrollReveal} animate={controls} initial='hidden' ref={element}>
             <h2>Any Questions <span>FAQ</span> </h2>
-            <Toggle>
-                <div className="question">
-                    <h4>How Do I Start?</h4>
+            <AnimateSharedLayout>
+                <Toggle title='How Do I Start?'>
+                        <div className="answer">
+                            <p>Lorem, ipsum dolor sit amet </p>
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam, tempore. Provident, quod cupiditate nam, explicabo consequatur enim molestias dolor ipsa repellat dolorem repellendus vero nobis esse similique est dolore asperiores.</p>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil aut vero ipsum nobis impedit iste, rem architecto voluptas optio doloremque!</p>
+                        </div>
+                </Toggle>
+                <Toggle title='Daily Schedule'>
                     <div className="answer">
                         <p>Lorem, ipsum dolor sit amet </p>
                         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam, tempore. Provident, quod cupiditate nam, explicabo consequatur enim molestias dolor ipsa repellat dolorem repellendus vero nobis esse similique est dolore asperiores.</p>
                     </div>
-                    <div className="faq-line"></div>
-                </div>
-            </Toggle>
-            <div className="question">
-                <h4>Daily Schedule</h4>
-                <div className="answer">
-                    <p>Lorem, ipsum dolor sit amet </p>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam, tempore. Provident, quod cupiditate nam, explicabo consequatur enim molestias dolor ipsa repellat dolorem repellendus vero nobis esse similique est dolore asperiores.</p>
-                </div>
-                <div className="faq-line"></div>
-            </div>
-            <div className="question">
-                <h4>Different Payment Methods</h4>
-                <div className="answer">
-                    <p>Lorem, ipsum dolor sit amet </p>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam, tempore. Provident, quod cupiditate nam, explicabo consequatur enim molestias dolor ipsa repellat dolorem repellendus vero nobis esse similique est dolore asperiores.</p>
-                </div>
-                <div className="faq-line"></div>
-            </div>
-            <div className="question">
-                <h4>What Product do you offer.</h4>
-                <div className="answer">
-                    <p>Lorem, ipsum dolor sit amet </p>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam, tempore. Provident, quod cupiditate nam, explicabo consequatur enim molestias dolor ipsa repellat dolorem repellendus vero nobis esse similique est dolore asperiores.</p>
-                </div>
-                <div className="faq-line"></div>
-            </div>
+                </Toggle>
+                <Toggle title='Different Payment Methods'>
+                    <div className="answer">
+                        <p>Lorem, ipsum dolor sit amet </p>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam, tempore. Provident, quod cupiditate nam, explicabo consequatur enim molestias dolor ipsa repellat dolorem repellendus vero nobis esse similique est dolore asperiores.</p>
+                    </div>
+                </Toggle>
+                <Toggle title='What Product do you offer.'>
+                    <div className="answer">
+                        <p>Lorem, ipsum dolor sit amet </p>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam, tempore. Provident, quod cupiditate nam, explicabo consequatur enim molestias dolor ipsa repellat dolorem repellendus vero nobis esse similique est dolore asperiores.</p>
+                    </div>
+                </Toggle>
+            </AnimateSharedLayout>
         </Faq>
     )
 }
